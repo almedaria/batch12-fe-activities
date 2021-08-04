@@ -1,0 +1,193 @@
+body{
+    background-image: url(background.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    min-width: 400px;
+    flex-wrap: wrap;
+    margin: 40px;
+    font-family: 'Montserrat', sans-serif;
+}
+#mechanics{
+    font-family: 'Montserrat', sans-serif;
+    vertical-align: middle;
+    margin-right:30px;
+    max-width: 500px;
+    background-size: 100%;
+    flex:1;
+    position:relative;
+    flex-grow: 1;
+    height: auto;
+    align-items: center;
+    padding: 70px;
+    line-height: 28px;
+    color: white;
+    text-shadow: 0 0 20px #4c00ff;
+}
+#mechanics::before{
+    content:'';
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(cocktail.png);
+    background-size: 100%;
+    background-position: top center;
+    opacity: 0.75;
+    filter: brightness(50%);
+    border-radius: 25px;
+}
+#lname-label,#number-label{
+    padding-left: 0px;
+}
+.maintitle{
+    position: relative;
+    font-family: 'Unica One', cursive;
+    font-size: 80px;
+    text-align: center;
+    font-weight: bolder;
+    color: #fff;
+    text-shadow: 0 0 20px #ff3300;
+    line-height: 60px;
+}
+h1{
+    position:relative;
+    font-family: 'Unica One', cursive;
+    font-size: 40px;
+    line-height: 30px;
+    text-align: center;
+    font-weight: normal;
+    color: #fff;
+    text-shadow: 0 0 20px #ffae00;
+}  
+.open{
+    position:relative;
+    max-width: 35%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+p{
+    position: relative;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+}
+#description{
+    position:relative;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    text-align: center;
+    color: #fff;
+    font-weight: lighter;
+    line-height: 18px;
+    padding-bottom: 20px;
+    text-shadow: 0 0 20px #4c00ff;
+}
+#name-label,#lname-label,#email-label,#number-label,#dropdown{
+    width: 110px;
+    display: inline-block;
+}
+#rating-label,#reference-label,#best,#worst,#radio-label{
+    display: inline-block;
+    padding-top:10px;
+}
+#fullsurvey{
+    font-family: 'Montserrat', sans-serif;
+    flex:1;
+    margin-right: 60px;
+    font-size: small;
+    background-image: linear-gradient(to bottom right,black, rgb(0, 0, 99), purple,rgb(160, 15, 44), rgb(87, 0, 87), rgb(0, 0, 102), black);
+    color: white;
+    border-radius: 25px;
+    padding-top: 0px;
+    padding-bottom: 25px;
+    padding-right:90px;
+    padding-left:90px;
+    line-height: 25px;
+    text-shadow: 0 0 20px #4c00ff;   
+}
+#reflabel{
+    padding-right:20px;
+}
+#submit{
+    background: transparent;
+    display: block;
+    font-family: 'Gruppo', cursive;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bolder;
+    color: white;
+    height: 50px;
+    width: 250px;
+    border-radius: 25px;
+    border-color: white;
+    border-width: 5px;
+}
+#submit:hover{
+    font-family: 'Gruppo', cursive;
+    color: #fff;
+    text-shadow: 0 0 30px #ffae00;
+    box-shadow: 0 0 30px #ffae00;
+}
+#thankyou{
+    font-family: 'Montserrat', sans-serif;
+    vertical-align: middle;
+    margin: 60px;
+    max-width: 1100px;
+    background-size: 100%;
+    position:relative;
+    height: auto;
+    align-items: center;
+    padding: 70px;
+    line-height: 28px;
+    color: white;
+    text-shadow: 0 0 20px #4c00ff;
+}
+#thankyou::before{
+    content:'';
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(cocktail.png);
+    background-size: 100%;
+    background-position: top center;
+    opacity: 0.75;
+    filter: brightness(50%);
+    border-radius: 25px;
+}
+h2{
+    position: relative;
+    font-size: 36px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    line-height:40px;
+}
+h3{
+    position: relative;
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 32px;
+}
+.maintitlety{
+    position: relative;
+    font-family: 'Unica One', cursive;
+    font-size: 110px;
+    text-align: center;
+    font-weight: bolder;
+    color: #fff;
+    text-shadow: 0 0 20px #ff3300;
+    line-height: 130px;
+}
+.open1{
+    position:relative;
+    max-width: 280px;
+    padding-top: 0px;
+    padding-bottom: 10px;
+}
