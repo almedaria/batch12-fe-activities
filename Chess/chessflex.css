@@ -1,0 +1,101 @@
+*{
+	box-sizing: border-box;
+}
+
+body{
+	margin: 0;
+	padding: 0;
+	font-family: serif;
+	font-size: 16px;
+	font-size: 1rem;
+	text-align: center;
+	color: rgb(255, 255, 255);
+	background-color: rgb(151, 73, 0);
+    background-image: url(background2.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+h1{
+	font-size: 4rem;
+	text-shadow: 0 2px 5px rgb(87, 27, 0);
+    font-family: 'Satisfy', cursive;
+    line-height: 5rem;
+    display: block;
+    background-color: rgba(109, 44, 14, 0.596);
+    border-radius: 10px;
+    padding: 30px;
+    max-width: 70%;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.board{
+	position: relative;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	border: 9vw solid transparent;
+	border-image: url("wood1.png") 50 stretch;
+	max-width: 500px;
+	max-height: 500px;
+	width: 100vw;
+	height: 100vw;
+	box-shadow: 0 20px 20px -5px rgba(0,0,0,.75);
+	font-size: 0;
+	background-image: url("lightwood.jpg");
+    background-repeat: repeat;
+    background-size: 100%;
+    background-attachment:fixed;
+}
+
+.box{
+	width: 12.5%;
+	height: 12.5%;
+	font-size: 10vw;
+	line-height: 12vw;
+    box-shadow: 0 1px 1px -3px rgba(0,0,0,.75);
+    
+}
+
+.box:nth-child(n+1):nth-child(-n+16){
+	color: rgb(68, 24, 5);
+    -webkit-text-stroke: 0.5px rgba(214, 187, 169, 0.911);
+}
+.box:nth-child(n+49):nth-child(-n+64){
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke: 1px rgb(116, 33, 1);;
+}
+
+.board .box:nth-child(n+1):nth-child(-n+8):nth-child(even),
+.board .box:nth-child(n+17):nth-child(-n+25):nth-child(even),
+.board .box:nth-child(n+33):nth-child(-n+40):nth-child(even),
+.board .box:nth-child(n+49):nth-child(-n+56):nth-child(even),
+.board .box:nth-child(n+9):nth-child(-n+16):nth-child(odd),
+.board .box:nth-child(n+25):nth-child(-n+32):nth-child(odd),
+.board .box:nth-child(n+41):nth-child(-n+48):nth-child(odd),
+.board .box:nth-child(n+57):nth-child(-n+64):nth-child(odd){
+	background-color: rgba(153, 83, 2, 0.5);
+    background-image: url(wood1.png);
+}
+
+@media screen and (min-width: 480px){
+	.board{
+		border: 20px solid transparent;
+		border-image: url("lightwood.jpg") 50 stretch;
+		box-shadow: 0 15px 15px -5px rgba(0,0,0,.75);
+        margin-bottom: 50px;
+        
+	}
+	.box{
+		font-size: 3.5rem;
+		line-height: 50px;}
+  
+        
+}
