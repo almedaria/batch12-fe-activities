@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" class="style">
+    <script src="script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <title>Momentum</title>
+</head>
+<body>
+    <aside id ="todo">
+        <div id="toggle-todo"></div>
+        <div id="todo-content">
+        <span id="title-todo">To Do List</span>
+
+        <div id="item">
+            <input type="text" rows="5" cols="3" placeholder="add item" id="text">
+            <button id="add"></button>
+        </div>
+            <div id="tasks">
+            
+            </div>
+    </div>
+    </aside>
+    <div id="main">
+    <button id="reset"></button>
+    
+    <time id="time"></time>
+    <h1>
+        <span id="greeting"></span>
+        <span id="name" contenteditable="true"></span>
+    </h1>
+    <h2>
+        What is your focus for today?
+    </h2>
+    <h2 id="focus" contenteditable="true"></h2>
+    <div class="quote-wrapper">
+        <h3 id="quote-title">Quote of the day</h3>
+        <blockquote id="quote-text"></blockquote>
+        <button id="new-quote"></button>
+        <button id="gen-quote"></button>
+        
+    </div>
+</div>
+</body>
+</html>
