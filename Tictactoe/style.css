@@ -3,26 +3,32 @@
   padding: 0;
 }
 body {
-  background: #202020;
+  background-image: url("background.png");
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
   position: fixed;
   background-repeat: no-repeat;
   height: 100vh;
   padding-top: 1px;
   margin: auto;
   width: 100%;
+  font-family: "Press Start 2P", cursive;
 }
 .title {
-  color: #f8bd45;
+  color: #ffffff;
   text-align: center;
-  font-size: 2rem;
-  margin-top: 5%;
+  font-size: 1.3rem;
+  text-shadow: 4px 2px #200a20b4;
+  margin-top: 2%;
+  margin-bottom: 4%;
 }
 .display {
-  color: #36827e;
+  color: #f0f0f0;
   font-size: 25px;
   text-align: center;
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin-top: 5%;
+  margin-bottom: 2%;
 }
 .hide {
   display: none;
@@ -32,13 +38,14 @@ body {
   display: grid;
   grid-template-columns: 33% 33% 33%;
   grid-template-rows: 33% 33% 33%;
-  max-width: 300px;
+  max-width: 420px;
+  height: 420px;
 }
 .tile {
-  border: 1px solid #276462;
+  border: 1px solid #ffffff;
   min-width: 100px;
   min-height: 100px;
-  background-color: #e0b45b;
+  background-color: #05050562;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,35 +54,45 @@ body {
   cursor: pointer;
 }
 .playerX {
-  color: #ed3a33;
+  color: #ebfc01;
 }
 .playerO {
-  color: #276462;
+  color: #f79515;
 }
 .controls {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1em;
-}
-.nextprevious {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
+  width: 20%;
+  margin: auto;
   align-items: center;
   margin-top: 1em;
 }
 #reset,
 #previous,
 #next {
-  background-color: rgb(185, 36, 36);
-  color: white;
-  padding: 10px;
-  border-radius: 8px;
+  background-color: inherit;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 80%;
+  outline: none;
+  vertical-align: middle;
   border: none;
-  font-size: 20px;
-  margin-left: 1em;
   cursor: pointer;
-  align-self: center;
+}
+#reset {
+  background-image: url("reset.png");
+  height: 50px;
+  width: 50px;
+  background-blend-mode: luminosity;
+}
+#previous {
+  background-image: url("previous.png");
+  height: 25px;
+  width: 25px;
+}
+#next {
+  background-image: url("next.png");
+  height: 25px;
+  width: 25px;
 }

@@ -14,6 +14,8 @@ const next = document.getElementById("next");
 const previous = document.getElementById("previous");
 // gets the value of all divs with class tile in HTML - to be used in for Loop
 const tiles = document.querySelectorAll(".tile");
+// current player display
+const playerDisplay = document.querySelector(".display-player");
 // states that player x starts the game
 let playerX = true;
 //checks if there is a winner or if it's a tie - initial state is 0, end state is 9
