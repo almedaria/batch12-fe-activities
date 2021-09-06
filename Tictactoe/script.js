@@ -101,8 +101,8 @@ function checkWinner(mark) {
       drawCounter++;
     }
   }
+  //return `its a tie` if there's no winner and draw counter reaches 9
   if (drawCounter == 9 && hasWinner == false) {
-    //return `its a tie` if there's no winner and draw counter reaches 9
     announceWinner.innerText = `it's a tie`;
     announceWinner.style.color = "#ffffff";
     announceWinner.style.textAlign = "center";
