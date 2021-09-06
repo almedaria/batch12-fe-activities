@@ -101,8 +101,8 @@ function checkWinner(mark) {
       drawCounter++;
     }
   }
-  if (drawCounter == 9) {
-    //return `its a tie`;
+  if (drawCounter == 9 && hasWinner == false) {
+    //return `its a tie` if there's no winner and draw counter reaches 9
     announceWinner.innerText = `it's a tie`;
     announceWinner.style.color = "#ffffff";
     announceWinner.style.textAlign = "center";
@@ -127,6 +127,7 @@ const resetBoard = () => {
 
 resetButton.addEventListener("click", resetBoard);
 
+// returns board to initial state on document load
 function initialize() {
   var x = document.getElementsByClassName("display");
   x[0].classList.add("hide");
