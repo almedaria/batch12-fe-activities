@@ -7,7 +7,7 @@ const announcer = document.getElementById("announcer");
 // gets the winner announcer div in HTML
 const announceWinner = document.getElementById("announce-winner");
 // gets the value of reset button in HTML
-const reset = document.getElementById("reset");
+const resetButton = document.getElementById("reset");
 // gets the value of next button in HTML
 const next = document.getElementById("next");
 //gets the value of previous button in HTML
@@ -31,23 +31,30 @@ const winningConditions = [
   [0, 4, 8],
   [2, 4, 6],
 ];
+let xMark = "X";
+let oMark = "O";
+let isGameActive = true;
+let hasWinner = false;
 
 // click listeners for all tiles - if the tile is clicked, value should be added
 // handle click - used to check if the element is clicked (e) is the event
 // if target is not blank, return e.prevent default - used to avoid duplications
-// console.log - logs the
 function tilesClickListeners() {
   const handleClick = (e) => {
-    if (e.target.innerText != "") {
+    if ((e.target.innerText != "" && isGameActive) || hasWinner) {
       return e.preventDefault();
     }
     console.log(e.target.innerText != ""); // logs the value of false because value of inner text is not blank
-    const mark = playerX ? "x" : "o"; // mark assigns the value of player X to "x" string which will be logged in the box, if not player X it will log "o"
+    const mark = playerX ? xMark : oMark; // mark assigns the value of player X to "x" string which will be logged in the box, if not player X it will log "o"
+    e.target.classList.remove(xMark);
+    e.target.classList.remove(oMark);
     e.target.innerText = mark; // targets inntertext of the tile div and adds the value 'x' or 'o' respectively
     e.target.classList.add(mark); // adds a classlist of mark to all divs - will assign value to them and will be useful for game history
     playerX = !playerX; // checks if player x is not player x so player o can take a turn
     const winner = checkWinner(mark); // checks if there's a winner based on mark history
     console.log(winner); // logs the winner in the console - update this to reflect in HTML doc
+    let currentPlayer = document.getElementById("currentPlayer");
+    currentPlayer.innerText = mark;
   };
   // adds event listener for EACH tile  (click is the action, handle click runs the code to log items when clicked)
   tiles.forEach((tile) => {
@@ -76,18 +83,55 @@ function checkWinner(mark) {
           tile2.contains(mark) &&
           tile3.contains(mark)
         ) {
-          return `${mark} is the winner`;
+          //return `${mark} is the winner`;
+          isGameActive = false;
+          hasWinner = true;
+          announceWinner.innerText = `${mark} is the winner`;
+          announceWinner.style.color = "#ffffff";
+          announceWinner.style.textAlign = "center";
+          announceWinner.style.paddingTop = "10px";
         }
       }
     }
+
     //draw counter - checks if there's a tie - counts if there are 9 moves in total and returns a tie if there's no winner
     let tileClass = tiles[i].classList;
     //if statement that adds 1 everytime a value of x and a value of o has been logged
-    if (tileClass.contains("x") || tileClass.contains("o")) {
+    if (tileClass.contains(xMark) || tileClass.contains(oMark)) {
       drawCounter++;
     }
   }
   if (drawCounter == 9) {
-    return `its a tie`;
+    //return `its a tie`;
+    announceWinner.innerText = `it's a tie`;
+    announceWinner.style.color = "#ffffff";
+    announceWinner.style.textAlign = "center";
+    announceWinner.style.paddingTop = "10px";
   }
 }
+const resetBoard = () => {
+  let currentPlayer = document.getElementById("currentPlayer");
+  playerX = true;
+  hasWinner = false;
+  isGameActive = true;
+  announceWinner.innerText = ``;
+  currentPlayer.innerText = xMark;
+  // removes the marks on the board
+  tiles.forEach((tile) => {
+    tile.innerText = "";
+    tile.classList.remove(xMark);
+    tile.classList.remove(oMark);
+    drawCounter = 0;
+  });
+};
+
+resetButton.addEventListener("click", resetBoard);
+
+function initialize() {
+  var x = document.getElementsByClassName("display");
+  x[0].classList.add("hide");
+}
+
+window.document.onload = function () {
+  initialize();
+};

@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  color: #ffffff;
 }
 body {
   background-image: url("background.png");
@@ -53,12 +54,6 @@ body {
   text-align: center;
   cursor: pointer;
 }
-.playerX {
-  color: #ebfc01;
-}
-.playerO {
-  color: #f79515;
-}
 .controls {
   display: flex;
   flex-direction: row;
@@ -95,4 +90,26 @@ body {
   background-image: url("next.png");
   height: 25px;
   width: 25px;
+}
+#announceWinner {
+  text-align: center;
+  margin: auto;
+  color: #ffffff;
+  font-size: 10px;
+}
+.X {
+  color: #bbc900;
+}
+.O {
+  color: #f38a00;
+}
+.hide {
+  visibility: hidden;
+}
+#player-selection {
+  text-align: center;
+}
+#next,
+#previous {
+  opacity: 0.25;
 }
