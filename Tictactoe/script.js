@@ -1,11 +1,15 @@
 //gets the container of the tiles in HTML
 const board = document.getElementById("container");
+//gets the entire board
+const tictactoe = document.getElementById("board");
 //gets the div of each tile in HTML
 const tile = document.getElementById("tile");
 //gets the winner announcer container in HTML
 const announcer = document.getElementById("announcer");
 // gets the winner announcer div in HTML
 const announceWinner = document.getElementById("announce-winner");
+// gets the value of player-turn div
+const playerTurn = document.getElementById("player-turn");
 // gets the value of reset button in HTML
 const resetButton = document.getElementById("reset");
 // gets the value of next button in HTML
@@ -53,13 +57,22 @@ function tilesClickListeners() {
     playerX = !playerX; // checks if player x is not player x so player o can take a turn
     const winner = checkWinner(mark); // checks if there's a winner based on mark history
     console.log(winner); // logs the winner in the console - update this to reflect in HTML doc
-    let currentPlayer = document.getElementById("currentPlayer");
-    currentPlayer.innerText = mark;
+    // let currentPlayer = document.getElementById("currentPlayer");
+    // currentPlayer.innerText = mark;
+    turnCheck();
   };
   // adds event listener for EACH tile  (click is the action, handle click runs the code to log items when clicked)
   tiles.forEach((tile) => {
     tile.addEventListener("click", handleClick);
   });
+}
+
+function turnCheck() {
+  if (playerX) {
+    currentPlayer.innerText = xMark;
+  } else {
+    currentPlayer.innerText = oMark;
+  }
 }
 
 tilesClickListeners(); // runs the function tilesClickListeners
@@ -115,8 +128,14 @@ const resetBoard = () => {
   hasWinner = false;
   isGameActive = true;
   announceWinner.innerText = ``;
-  currentPlayer.innerText = xMark;
+  playerTurn.classList.add("hide");
+  playerChoose.classList.remove("hide");
+  tictactoe.classList.add("hide");
+  //currentPlayer.innerText = xMark;
   // removes the marks on the board
+  if (playerX) {
+    currentPlayer.innerText = oMark;
+  }
   tiles.forEach((tile) => {
     tile.innerText = "";
     tile.classList.remove(xMark);
@@ -136,3 +155,27 @@ function initialize() {
 window.document.onload = function () {
   initialize();
 };
+
+// Player chooser code - if player chooses an option, the player-choose id will be hidden
+let playerChoose = document.getElementById("player-choose");
+let oButton = document.getElementById("o");
+let xButton = document.getElementById("x");
+
+//added function is still not working - does not hide the player-choose statement and does not update the x or o player
+function selectPlayerO() {
+  playerChoose.classList.add("hide");
+  playerX = false;
+  currentPlayer.innerText = oMark;
+  playerTurn.classList.remove("hide");
+  tictactoe.classList.remove("hide");
+}
+oButton.addEventListener("click", selectPlayerO);
+
+function selectPlayerX() {
+  playerChoose.classList.add("hide");
+  playerX = true;
+  currentPlayer.innerText = xMark;
+  playerTurn.classList.remove("hide");
+  tictactoe.classList.remove("hide");
+}
+xButton.addEventListener("click", selectPlayerX);

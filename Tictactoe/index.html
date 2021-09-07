@@ -5,13 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="favicon.png" type="image/png" />
+    <link rel="icon" sizes="192x192" href="favicon.png" type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
       rel="stylesheet"
     />
-    <link rel="shortcut icon" href="favicon.png" type="png/x-icon" />
 
     <title>Tic-Tac-Toe</title>
   </head>
@@ -22,15 +24,22 @@
     </div>
     <div class="display">
       <!--<span id="player-choose">Who will start first?</span>-->
-      <span id="player-turn">
-        Player <span class="display-player" id="currentPlayer">X</span>'s turn
-      </span>
+      <div id="player-choose">
+        <span>Who will play first?</span>
+        <div id="xoButtons">
+          <button id="x">X</button>
+          <button id="o">O</button><br />
+        </div>
+      </div>
+      <div id="player-turn" class="hide">
+        Player <span class="display-player" id="currentPlayer"></span>'s turn
+      </div>
     </div>
     <!--<div id="player-selection">
     <button id="player-x">X</button>
     <button id="player-y">O</button>
   </div>-->
-    <div id="board">
+    <div id="board" class="hide">
       <div id="container">
         <div class="tile" id="tile"></div>
         <div class="tile" id="tile"></div>
