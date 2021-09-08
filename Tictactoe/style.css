@@ -68,7 +68,7 @@ body {
 .controls {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 20%;
   margin: auto;
   align-items: center;
@@ -147,13 +147,8 @@ body {
   margin: 40px;
 }
 
-.hide {
+.not-visible {
   visibility: hidden;
-}
-
-#next,
-#previous {
-  opacity: 0.25;
 }
 
 @media (max-width: 938px) {
@@ -194,7 +189,7 @@ body {
   .controls {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     width: 30%;
     margin: auto;
     align-items: center;
@@ -241,7 +236,7 @@ body {
   .controls {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     width: 38%;
     margin: auto;
     align-items: center;
@@ -346,7 +341,7 @@ body {
   .controls {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     width: 60%;
     margin: auto;
     align-items: center;

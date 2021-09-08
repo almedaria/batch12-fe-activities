@@ -23,7 +23,6 @@
       <h1>Tic-Tac-Toe</h1>
     </div>
     <div class="display">
-      <!--<span id="player-choose">Who will start first?</span>-->
       <div id="player-choose">
         <span>Who will play first?</span>
         <div id="xoButtons">
@@ -31,14 +30,10 @@
           <button id="o">O</button><br />
         </div>
       </div>
-      <div id="player-turn" class="hide">
+      <div id="player-turn" class="not-visible">
         Player <span class="display-player" id="currentPlayer"></span>'s turn
       </div>
     </div>
-    <!--<div id="player-selection">
-    <button id="player-x">X</button>
-    <button id="player-y">O</button>
-  </div>-->
     <div id="board" class="hide">
       <div id="container">
         <div class="tile" id="tile"></div>
@@ -55,9 +50,9 @@
         <div id="announce-winner"></div>
       </div>
       <div class="controls">
-        <button id="previous"></button>
+        <button id="previous" class="hide"></button>
         <button id="reset"></button>
-        <button id="next"></button>
+        <button id="next" class="hide"></button>
       </div>
     </div>
     <script src="script.js"></script>

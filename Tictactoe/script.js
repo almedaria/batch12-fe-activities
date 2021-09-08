@@ -13,9 +13,9 @@ const playerTurn = document.getElementById("player-turn");
 // gets the value of reset button in HTML
 const resetButton = document.getElementById("reset");
 // gets the value of next button in HTML
-const next = document.getElementById("next");
+const nextButton = document.getElementById("next");
 //gets the value of previous button in HTML
-const previous = document.getElementById("previous");
+const previousButton = document.getElementById("previous");
 // gets the value of all divs with class tile in HTML - to be used in for Loop
 const tiles = document.querySelectorAll(".tile");
 // current player display
@@ -39,6 +39,13 @@ let xMark = "X";
 let oMark = "O";
 let isGameActive = true;
 let hasWinner = false;
+let storedTilesArray = [];
+let currentTileDisplayedIndex = 0;
+
+// Player chooser code - if player chooses an option, the player-choose id will be hidden
+let playerChoose = document.getElementById("player-choose");
+let oButton = document.getElementById("o");
+let xButton = document.getElementById("x");
 
 // click listeners for all tiles - if the tile is clicked, value should be added
 // handle click - used to check if the element is clicked (e) is the event
@@ -116,21 +123,45 @@ function checkWinner(mark) {
   }
   //return `its a tie` if there's no winner and draw counter reaches 9
   if (drawCounter == 9 && hasWinner == false) {
-    announceWinner.innerText = `it's a tie`;
+    announceWinner.innerText = "it's a tie";
     announceWinner.style.color = "#ffffff";
     announceWinner.style.textAlign = "center";
     announceWinner.style.paddingTop = "10px";
+    storeTiles();
+  }
+  if (hasWinner) {
+    storeTiles();
   }
 }
+
+// get the tiles after game is over and store in storedTilesArray - pushes all record in an array
+function storeTiles() {
+  let tileRecord = [];
+  tiles.forEach((tile) => {
+    tileRecord.push(tile.innerText);
+  });
+  storedTilesArray.push(tileRecord);
+  currentTileDisplayedIndex++;
+  showNavigationButtons();
+}
+
+function showNavigationButtons() {
+  nextButton.classList.remove("hide");
+  previousButton.classList.remove("hide");
+}
+
 const resetBoard = () => {
   let currentPlayer = document.getElementById("currentPlayer");
   playerX = true;
   hasWinner = false;
   isGameActive = true;
-  announceWinner.innerText = ``;
+  announceWinner.innerText = "";
   playerTurn.classList.add("hide");
+  playerTurn.classList.remove("not-visible");
   playerChoose.classList.remove("hide");
   tictactoe.classList.add("hide");
+  nextButton.classList.add("hide");
+  previousButton.classList.add("hide");
   //currentPlayer.innerText = xMark;
   // removes the marks on the board
   if (playerX) {
@@ -144,29 +175,18 @@ const resetBoard = () => {
   });
 };
 
-resetButton.addEventListener("click", resetBoard);
-
-// returns board to initial state on document load
-function initialize() {
-  var x = document.getElementsByClassName("display");
-  x[0].classList.add("hide");
-}
-
-window.document.onload = function () {
-  initialize();
-};
-
-// Player chooser code - if player chooses an option, the player-choose id will be hidden
-let playerChoose = document.getElementById("player-choose");
-let oButton = document.getElementById("o");
-let xButton = document.getElementById("x");
+resetButton.addEventListener("click", function () {
+  resetBoard();
+  storedTilesArray = [];
+  currentTileDisplayedIndex = 0;
+});
 
 //added function is still not working - does not hide the player-choose statement and does not update the x or o player
 function selectPlayerO() {
   playerChoose.classList.add("hide");
   playerX = false;
   currentPlayer.innerText = oMark;
-  playerTurn.classList.remove("hide");
+  playerTurn.classList.remove("not-visible");
   tictactoe.classList.remove("hide");
 }
 oButton.addEventListener("click", selectPlayerO);
@@ -175,7 +195,43 @@ function selectPlayerX() {
   playerChoose.classList.add("hide");
   playerX = true;
   currentPlayer.innerText = xMark;
-  playerTurn.classList.remove("hide");
+  playerTurn.classList.remove("not-visible");
   tictactoe.classList.remove("hide");
 }
 xButton.addEventListener("click", selectPlayerX);
+// previous button shows the previous playing board
+function onPreviousButtonClicked() {
+  if (currentTileDisplayedIndex - 1 <= 0) {
+    return;
+  }
+  currentTileDisplayedIndex--;
+  fillTiles();
+}
+previousButton.addEventListener("click", onPreviousButtonClicked);
+
+function onNextButtonClicked() {
+  if (currentTileDisplayedIndex < storedTilesArray.length) {
+    currentTileDisplayedIndex++;
+    fillTiles();
+  } else {
+    resetBoard();
+  }
+}
+
+//next button sows the next playing board
+nextButton.addEventListener("click", onNextButtonClicked);
+
+function fillTiles() {
+  tiles.forEach((tile, index) => {
+    tile.classList.remove(xMark);
+    tile.classList.remove(oMark);
+    const mark = storedTilesArray[currentTileDisplayedIndex - 1][index];
+    tile.innerHTML = mark;
+    if (!!mark) {
+      // if not empty string, dont add class;
+      tile.classList.add(mark);
+    }
+  });
+  playerTurn.classList.add("not-visible");
+  announceWinner.innerText = "";
+}
