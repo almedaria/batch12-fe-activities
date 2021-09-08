@@ -156,7 +156,7 @@ const resetBoard = () => {
   hasWinner = false;
   isGameActive = true;
   announceWinner.innerText = "";
-  playerTurn.classList.add("hide");
+
   playerTurn.classList.remove("not-visible");
   playerChoose.classList.remove("hide");
   tictactoe.classList.add("hide");
@@ -186,7 +186,7 @@ function selectPlayerO() {
   playerChoose.classList.add("hide");
   playerX = false;
   currentPlayer.innerText = oMark;
-  playerTurn.classList.remove("hide");
+  playerTurn.classList.remove("not-visible");
   tictactoe.classList.remove("hide");
 }
 oButton.addEventListener("click", selectPlayerO);
@@ -195,7 +195,7 @@ function selectPlayerX() {
   playerChoose.classList.add("hide");
   playerX = true;
   currentPlayer.innerText = xMark;
-  playerTurn.classList.remove("hide");
+  playerTurn.classList.remove("not-visible");
   tictactoe.classList.remove("hide");
 }
 xButton.addEventListener("click", selectPlayerX);
