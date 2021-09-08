@@ -134,7 +134,7 @@ function checkWinner(mark) {
   }
 }
 
-// get the tiles after game is over and store in storedTilesArray - pushes all record in an array
+// get the tiles after game is over and store in storedTilesArray
 function storeTiles() {
   let tileRecord = [];
   tiles.forEach((tile) => {
@@ -149,7 +149,7 @@ function showNavigationButtons() {
   nextButton.classList.remove("hide");
   previousButton.classList.remove("hide");
 }
-
+//resets the board back to original state
 const resetBoard = () => {
   let currentPlayer = document.getElementById("currentPlayer");
   playerX = true;
@@ -174,7 +174,7 @@ const resetBoard = () => {
     drawCounter = 0;
   });
 };
-
+// resets the board to original state - no game history
 resetButton.addEventListener("click", function () {
   resetBoard();
   storedTilesArray = [];
@@ -186,7 +186,7 @@ function selectPlayerO() {
   playerChoose.classList.add("hide");
   playerX = false;
   currentPlayer.innerText = oMark;
-  playerTurn.classList.remove("not-visible");
+  playerTurn.classList.remove("hide");
   tictactoe.classList.remove("hide");
 }
 oButton.addEventListener("click", selectPlayerO);
@@ -195,11 +195,11 @@ function selectPlayerX() {
   playerChoose.classList.add("hide");
   playerX = true;
   currentPlayer.innerText = xMark;
-  playerTurn.classList.remove("not-visible");
+  playerTurn.classList.remove("hide");
   tictactoe.classList.remove("hide");
 }
 xButton.addEventListener("click", selectPlayerX);
-// previous button shows the previous playing board
+// previous button - will show the previous win state of the game
 function onPreviousButtonClicked() {
   if (currentTileDisplayedIndex - 1 <= 0) {
     return;
@@ -217,8 +217,7 @@ function onNextButtonClicked() {
     resetBoard();
   }
 }
-
-//next button sows the next playing board
+//will add next click listener - next will automatically start a new game
 nextButton.addEventListener("click", onNextButtonClicked);
 
 function fillTiles() {
